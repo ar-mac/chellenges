@@ -7,3 +7,5 @@ outside git scope
 
 package.json in tictactoe is copied straight from jasmine-react-helpers so it is probably the reason why `npm test` is not working
 I have to check out structure of package.json at zipcall
+
+27.01.16 nothing changed
