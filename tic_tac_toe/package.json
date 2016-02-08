@@ -3,16 +3,39 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:pokiujf/chellenges.git"
+    "url": "https://git@github.com/pokiujf/chellenges.git"
   },
+  "description": "outside git scope ``` - sudo apt-get install -y nodejs - npm install jasmine-react-helpers --save-dev ```",
+  "bugs": {
+    "url": "https://github.com/pokiujf/chellenges/issues"
+  },
+  "homepage": "https://github.com/pokiujf/chellenges#readme",
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "karma start --single-run --no-auto-watch karma.config.js",
+    "test_watch": "karma start --auto-watch --no-single-run karma.config.js",
+    "start": "node server.js",
+    "build:client": "NODE_ENV=production webpack --config webpack.client.rails.config.js",
+    "build:server": "NODE_ENV=production webpack --config webpack.server.rails.config.js",
+    "build:dev:client": "webpack -w --config webpack.client.rails.config.js",
+    "build:dev:server": "webpack -w --config webpack.server.rails.config.js",
+    "lint": "npm run eslint && npm run jscs",
+    "eslint": "eslint --ext .js,.jsx .",
+    "jscs": "jscs --verbose ."
+  },
+  "keywords": [],
+  "author": "me",
+  "license": "ISC",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-karma": "^0.8.3",
-    "karma": "^0.12.19",
-    "karma-jasmine": "^0.1.5",
-    "karma-chrome-launcher": "^0.1.4",
-    "karma-phantomjs-launcher": "^0.1.4",
-    "karma-react-jsx-preprocessor": "^0.1.1",
+    "karma": "^0.13.3",
+    "karma-coverage": "^0.4.2",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-spec-reporter": "0.0.20",
+    "karma-webpack": "^1.7.0",
     "lodash": "^4.2.1",
     "react": "^0.12.1"
   }
