@@ -1,0 +1,29 @@
+{
+  "name": "tic_tac_toe",
+  "version": "1.0.0",
+  "description": "Tic tac toe game in react with es2015",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pokiujf/chellenges.git"
+  },
+  "keywords": [
+    "tic",
+    "tac",
+    "toe"
+  ],
+  "author": "pokiujf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pokiujf/chellenges/issues"
+  },
+  "homepage": "https://github.com/pokiujf/chellenges#readme"
+}
