@@ -10,6 +10,13 @@ I have to check out structure of package.json at zipcall
 
 27.01.16 nothing changed
 
+## Commands to start server with webpack
+
+```
+node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors
+node_modules/http-server/bin/http-server -p 3000 .
+
+
 ## Jasmine matchers
 
 .toBe(something) - to check if object is exacly the same
