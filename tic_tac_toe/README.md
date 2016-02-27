@@ -5,17 +5,13 @@ outside git scope
 - npm install jasmine-react-helpers --save-dev
 ```
 
-package.json in tictactoe is copied straight from jasmine-react-helpers so it is probably the reason why `npm test` is not working
-I have to check out structure of package.json at zipcall
-
-27.01.16 nothing changed
-
-## Commands to start server with webpack
+## Commands
+ 
+ ### Start server with webpack
 
 ```
-node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors
-node_modules/http-server/bin/http-server -p 3000 .
-
+npm start
+```
 
 ## Jasmine matchers
 
