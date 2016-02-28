@@ -1,17 +1,21 @@
-var React = require('react');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var HelloReact = React.createClass({
-  componentDidMount: function() {
+export class HelloReact extends React.Component {
+  componentDidMount() {
     console.log('HelloReact mounted successfully');
-  },
+  }
 
-  render: function() {
+  render() {
     return(
       <div className="hello-react">
         welcome in hello react
       </div>
     )
   }
-});
+}
 
-React.render(<HelloReact />, document.getElementById('content'));
+ReactDOM.render(
+  <HelloReact />,
+  document.getElementById('hello-content')
+);

@@ -1,8 +1,8 @@
 module.exports = {
   entry: {
-    ticTacToe: './script/GameScripts.jsx',
     hello: [
       './script/HelloReact.jsx',
+      './script/GameScripts.jsx',
       './script/helloworld.js',
       'webpack-dev-server/client?http://localhost:8080'
     ]
