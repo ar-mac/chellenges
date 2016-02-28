@@ -58,6 +58,8 @@ export default class Es6Tester {
     }
     console.log(this.surname + ' should equal Es6TesterSurname');
     this.testThisChild()
+
+
   }
 
   testThisChild() {
@@ -69,6 +71,41 @@ export default class Es6Tester {
     let formatted = formatPL.format(new Date("2015-10-21"));
     console.log('formatted date in PL ' + formatted);
   }
+
+  testDefaultParameters() {
+    function defParams(x = 1, y = 2, z = 3) {
+      console.log(`x: ${x}, y: ${y}, z: ${z}`);
+    }
+    defParams();
+    defParams(5);
+
+    const attr = [4,5,6];
+    defParams(...attr);
+  }
+
+  testNamedParams() {
+    function namedParams({x = 0, y = 5, z = undefined}) {
+      console.log(`x: ${x}, y: ${y}, z: ${z}`);
+    }
+
+    namedParams({});
+    namedParams({x: 5, z: 8});
+    namedParams({x: 1, y: 34, z: 82});
+  }
+
+  testRestParams() {
+    function restParams(x = 1, y = 2, ...z) {
+      console.log(`x: ${x}, y: ${y}, z: ${z}`);
+    }
+    restParams();
+    restParams(5);
+
+    let attr = [4,5,6];
+    restParams(...attr);
+
+    attr = [4,5,6,7,8,9];
+    restParams(...attr);
+  }
 }
 
 console.log('Es6Tester loaded');
@@ -78,4 +115,7 @@ var es6tester = new Es6Tester;
 //es6tester.testConstScope();
 //es6tester.testThis();
 //es6tester.testDateTimeFormatting();
+//es6tester.testDefaultParameters();
+//es6tester.testNamedParams();
+//es6tester.testRestParams();
 //Es6Tester.classMethodTester();
