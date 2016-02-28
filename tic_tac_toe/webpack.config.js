@@ -4,6 +4,7 @@ module.exports = {
       './script/HelloReact.jsx',
       './script/GameScripts.jsx',
       './script/helloworld.js',
+      './script/Es6Testing.js',
       'webpack-dev-server/client?http://localhost:8080'
     ]
   },
