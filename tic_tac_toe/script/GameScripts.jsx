@@ -8,7 +8,7 @@ export class Game extends React.Component {
     super(props, context);
 
     this.initialState = {
-      fields: new Array(3 * 3).fill(''),
+      fields: new Array(Math.pow(3, 2)).fill(''),
       currentSign: 'X',
       lines: [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6],
         [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]],
