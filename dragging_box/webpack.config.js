@@ -1,3 +1,5 @@
+var path = require ('path');
+
 module.exports = {
   context: __dirname,
   entry: {
@@ -7,7 +9,7 @@ module.exports = {
     filename: 'app_bundle.js',
     path: __dirname + '/public'
   },
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
@@ -20,6 +22,7 @@ module.exports = {
       }
     ],
     loaders: [
+      { test: /\.css$/, loader: "style!css" },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',

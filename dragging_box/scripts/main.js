@@ -1,5 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Dragger from './Dragger';
 
-React.render(<Dragger />, document.getElementsByTagName('body')[0]);
+ReactDOM.render(<Dragger />, document.getElementById('app'));
 
