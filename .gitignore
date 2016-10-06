@@ -1,3 +1,4 @@
 .DS_Store
+.idea
 tic_tac_toe/node_modules
 dragging_box/node_modules

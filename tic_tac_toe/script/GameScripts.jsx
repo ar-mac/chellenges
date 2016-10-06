@@ -1,19 +1,41 @@
-var Game = React.createClass({
-  getInitialState: function() {
-    return{
-      fields: new Array(3 * 3).fill(''),
+import React from 'react';
+import ReactDOM from 'react-dom';
+import _ from 'lodash';
+
+export class Game extends React.Component {
+
+  constructor(props, context) {
+    super(props, context);
+
+    this.initialState = {
+      fields: new Array(Math.pow(3, 2)).fill(''),
       currentSign: 'X',
       lines: [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6],
         [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]],
       gameInProgress: true,
       draw: false
     };
-  },
-  componentDidMount: function () {
-    $('.cell').click(this.setSign);
-    $('#reset-button').click(this.resetGame);
-  },
-  setSign: function (event) {
+
+    this.state = this.initialState;
+
+    _.bindAll(this, [
+      'cleanState', 'setSign', 'checkLines',
+      'draw', 'gameWon', 'isWinning', 'flipSign'
+    ])
+  }
+
+  cleanState() {
+    this.setState({
+      fields: new Array(3 * 3).fill(''),
+      currentSign: 'X',
+      lines: [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6],
+        [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]],
+      gameInProgress: true,
+      draw: false
+    })
+  }
+
+  setSign(event) {
     var cellActive = !event.target.attributes['disabled'];
     if (cellActive && this.state.gameInProgress) {
       var fields = this.state.fields;
@@ -25,52 +47,44 @@ var Game = React.createClass({
         this.flipSign()
       }
     }
-  },
-  resetGame: function () {
-    this.replaceState(this.getInitialState());
-  },
-  checkLines: function (index) {
-    var _this = this;
+  }
+
+  checkLines(index) {
     index = parseInt(index);
-    this.state.lines.forEach(function (line) {
+    this.state.lines.forEach( (line) => {
       if (line.indexOf(index) != -1) {
-        var winningLine = line.every(_this.isWinning);
-        if (winningLine) _this.gameWon();
+        var winningLine = line.every(this.isWinning);
+        if (winningLine) this.gameWon();
       }
     });
-    var allOccupied = this.state.fields.every(function(sign) {
-      return !!sign
+    var allOccupied = this.state.fields.every((sign) => {return !!sign});
+    if (allOccupied) { this.draw() }
+  }
+
+  draw() { this.setState({draw: true}) }
+
+  gameWon() {
+    var fields = this.state.fields.map( (cell) => {
+      return cell === '' ? ' ' : cell
     });
-    debugger;
-    if (allOccupied) {
-      _this.draw();
-    }
-  },
-  draw: function() {
-    this.setState({draw: true})
-  },
-  gameWon: function () {
-    var fields = this.state.fields.map(function (cell) {
-      if (cell === '') {
-        return cell = ' '
-      } else {
-        return cell
-      }
-    });
+
     this.setState({fields: fields, gameInProgress: false});
 
-  },
-  isWinning: function (lineIndex) {
+  }
+
+  isWinning(lineIndex) {
     return this.state.fields[lineIndex] === this.state.currentSign
-  },
-  flipSign: function () {
+  }
+
+  flipSign() {
     var currentSign = this.state.currentSign === 'X' ? 'O' : 'X';
     this.setState({currentSign: currentSign})
-  },
-  render: function() {
-    var fieldsMarkup = this.state.fields.map(function (sign, index) {
+  }
+
+  render() {
+    var fieldsMarkup = this.state.fields.map( (sign, index) => {
       return (
-        <div key={index} className="cell" data-index={index} disabled={!!sign}>
+        <div key={index} onClick={this.setSign} className="cell" data-index={index} disabled={!!sign}>
           {sign}
         </div>
       )
@@ -85,7 +99,7 @@ var Game = React.createClass({
         <h2 className="draw-note" hidden={!this.state.draw}>
           Draw
         </h2>
-        <button id="reset-button">Reset game</button>
+        <button id="reset-button" onClick={this.cleanState}>Reset game</button>
         <p>
           <span>
             Current round: {this.state.currentSign}
@@ -97,7 +111,7 @@ var Game = React.createClass({
       </div>
     );
   }
-});
+}
 
 ReactDOM.render(
   <Game />,
