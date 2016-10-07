@@ -1,9 +1,6 @@
 .dragger {
-  background-color: black;
+  background-color: indianred;
+  position: fixed;
   height: 150px;
   width: 150px;
-}
-
-.dragger .dragger__hold {
-  background-color: indianred;
 }
