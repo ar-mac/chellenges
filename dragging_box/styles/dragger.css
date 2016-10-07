@@ -1,4 +1,6 @@
 .dragger {
+  -webkit-user-select: none;
+  user-select: none;
   background-color: indianred;
   position: fixed;
   height: 150px;
