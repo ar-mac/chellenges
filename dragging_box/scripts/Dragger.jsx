@@ -35,17 +35,11 @@ export default class Dragger extends React.Component {
     }
   };
 
-  classNames = () => {
-    let classNames = 'dragger';
-    if (this.state.onHold) classNames += ' dragger__hold';
-    return classNames
-  };
-
   render() {
     return (
       <div
         ref="dragger"
-        className={this.classNames()}
+        className="dragger"
         onMouseDown={this.setOnHold}
         onMouseUp={this.clearOnHold}
         style={{left: `${this.state.leftMargin}px`, top: `${this.state.topMargin}px`}}
