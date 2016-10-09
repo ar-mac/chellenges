@@ -44,7 +44,8 @@ export default class Dragger extends React.Component {
         onMouseUp={this.clearOnHold}
         style={{left: `${this.state.leftMargin}px`, top: `${this.state.topMargin}px`}}
       >
-        Here be dragger
+        Click, hold, and move mouse.<br /><br />
+        Kliknij, przytrzymaj i poruszaj myszką.
       </div>
     )
   }
